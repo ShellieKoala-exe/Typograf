@@ -1,0 +1,281 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Typograf - Modern Typing Experience</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Courier+Prime&display=swap">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css">
+    <!-- Font stylesheets will be added dynamically in JavaScript -->
+</head>
+<body>
+    <div class="app-container">
+        <header>
+            <div class="logo">
+                <span class="logo-text">Typograf</span>
+                <span class="badge">BETA</span>
+                <a href="https://jackpotdev.xyz" class="creator-link">By Jackpot</a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#" id="home-link" class="active">Home</a></li>
+                    <li><a href="#" id="practice-link">Practice</a></li>
+                    <li><a href="#" id="tips-link">Tips</a></li>
+                    <li><a href="#">Stats</a></li>
+                    <li><a href="#">Settings</a></li>
+                    <li><a href="https://jackpotdev.xyz/donate.html" target="_blank" class="donate-btn">Donate <i class="ri-heart-fill"></i></a></li>
+                </ul>
+            </nav>
+            <div class="user-actions">
+                <button class="icon-btn" id="theme-toggle"><i class="ri-moon-fill"></i></button>
+            </div>
+        </header>
+
+        <main>
+            <div id="home-page">
+                <div class="hero-section">
+                    <h1>Welcome to Typograf</h1>
+                    <p>The modern typing experience inspired by classic typewriters</p>
+                    <button id="start-typing-btn" class="cta-button">Start Writing</button>
+                </div>
+                <div class="features">
+                    <div class="feature">
+                        <i class="ri-rocket-line"></i>
+                        <h3>Improve Speed</h3>
+                        <p>Track your WPM and see your progress over time</p>
+                    </div>
+                    <div class="feature">
+                        <i class="ri-medal-line"></i>
+                        <h3>Enhance Accuracy</h3>
+                        <p>Real-time feedback on your typing precision</p>
+                    </div>
+                    <div class="feature">
+                        <i class="ri-time-line"></i>
+                        <h3>Practice Daily</h3>
+                        <p>Multiple time modes to fit your schedule</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="practice-page" style="display: none;">
+                <div class="typing-container">
+                    <div class="typing-info">
+                        <div class="timer">30</div>
+                        <div class="stats">
+                            <div class="stat">
+                                <span class="stat-value">0</span>
+                                <span class="stat-label">WPM</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-value">100%</span>
+                                <span class="stat-label">ACC</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-value">0</span>
+                                <span class="stat-label">CHARS</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="text-display">
+                        <div class="text-content"></div>
+                    </div>
+                    
+                    <div class="input-area">
+                        <div id="typing-field" class="typing-field">
+                            <span class="typing-cursor">|</span>
+                        </div>
+                        <div class="start-btn-container">
+                            <button class="start-btn">Start <i class="ri-play-fill"></i></button>
+                            <span class="enter-hint">or press ENTER</span>
+                        </div>
+                        <button class="restart-btn"><i class="ri-restart-line"></i> Restart</button>
+                        <span class="shift-hint">or press SHIFT</span>
+                    </div>
+                </div>
+                
+                <div class="options-panel">
+                    <div class="option">
+                        <label>Time</label>
+                        <div class="option-buttons">
+                            <button class="option-btn active">15s</button>
+                            <button class="option-btn">30s</button>
+                            <button class="option-btn">60s</button>
+                            <button class="option-btn">120s</button>
+                        </div>
+                    </div>
+                    
+                    <div class="option">
+                        <label>Mode</label>
+                        <div class="option-buttons">
+                            <button class="option-btn active">Words</button>
+                            <button class="option-btn">Quotes</button>
+                            <button class="option-btn">Code</button>
+                        </div>
+                    </div>
+                    
+                    <div class="option">
+                        <label>Difficulty</label>
+                        <div class="option-buttons">
+                            <button class="option-btn">Easy</button>
+                            <button class="option-btn active">Medium</button>
+                            <button class="option-btn">Hard</button>
+                        </div>
+                    </div>
+                    
+                    <div class="option">
+                        <label>Font</label>
+                        <select id="font-dropdown" class="font-dropdown">
+                            <option value="courier-prime" style="font-family: 'Courier Prime', monospace">Courier Prime</option>
+                            <option value="jetbrains-mono" style="font-family: 'JetBrains Mono', monospace" selected>JetBrains Mono</option>
+                            <option value="roboto-mono" style="font-family: 'Roboto Mono', monospace">Roboto Mono</option>
+                            <option value="source-code-pro" style="font-family: 'Source Code Pro', monospace">Source Code Pro</option>
+                            <option value="space-mono" style="font-family: 'Space Mono', monospace">Space Mono</option>
+                            <option value="ibm-plex-mono" style="font-family: 'IBM Plex Mono', monospace">IBM Plex Mono</option>
+                            <option value="fira-code" style="font-family: 'Fira Code', monospace">Fira Code</option>
+                            <option value="ubuntu-mono" style="font-family: 'Ubuntu Mono', monospace">Ubuntu Mono</option>
+                            <option value="inconsolata" style="font-family: 'Inconsolata', monospace">Inconsolata</option>
+                            <option value="anonymous-pro" style="font-family: 'Anonymous Pro', monospace">Anonymous Pro</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="tips-page" style="display: none;">
+                <div class="page-header">
+                    <h2>Typing Tips & Techniques</h2>
+                    <p>Improve your typing skills with these proven strategies</p>
+                </div>
+                
+                <div class="tips-grid">
+                    <div class="tip-card">
+                        <div class="tip-icon"><i class="ri-hand-coin-line"></i></div>
+                        <h3>Proper Hand Position</h3>
+                        <p>Keep your fingers on the home row (ASDF and JKL;). This position allows you to reach all keys with minimal movement.</p>
+                    </div>
+                    
+                    <div class="tip-card">
+                        <div class="tip-icon"><i class="ri-eye-line"></i></div>
+                        <h3>Look at the Screen</h3>
+                        <p>Train yourself to look at the screen instead of your hands while typing. This improves speed and reduces errors.</p>
+                    </div>
+                    
+                    <div class="tip-card">
+                        <div class="tip-icon"><i class="ri-timer-line"></i></div>
+                        <h3>Practice Regularly</h3>
+                        <p>Set aside 15-30 minutes daily for typing practice. Consistency is more important than lengthy practice sessions.</p>
+                    </div>
+                    
+                    <div class="tip-card">
+                        <div class="tip-icon"><i class="ri-repeat-line"></i></div>
+                        <h3>Focus on Accuracy First</h3>
+                        <p>Build accuracy before speed. It's easier to get faster when you're accurate than to fix bad habits later.</p>
+                    </div>
+                    
+                    <div class="tip-card">
+                        <div class="tip-icon"><i class="ri-pulse-line"></i></div>
+                        <h3>Develop Rhythm</h3>
+                        <p>Try to maintain a steady rhythm while typing, even if it means typing slower at first. Speed will come naturally.</p>
+                    </div>
+                    
+                    <div class="tip-card">
+                        <div class="tip-icon"><i class="ri-file-text-line"></i></div>
+                        <h3>Learn Proper Technique</h3>
+                        <p>Each finger is responsible for specific keys. Learning proper finger placement will significantly improve your typing.</p>
+                    </div>
+                </div>
+                
+                <div class="keyboard-diagram">
+                    <h3>Keyboard Finger Assignment</h3>
+                    <div class="keyboard-image">
+                        <svg viewBox="0 0 800 300" xmlns="http://www.w3.org/2000/svg">
+                            <g fill="var(--bg-tertiary)" stroke="var(--border-light)" stroke-width="2">
+                                <!-- Row 1 -->
+                                <rect x="40" y="40" width="60" height="60" rx="5" class="key left-pinky" data-key="~"/>
+                                <rect x="110" y="40" width="60" height="60" rx="5" class="key left-pinky" data-key="1"/>
+                                <rect x="180" y="40" width="60" height="60" rx="5" class="key left-ring" data-key="2"/>
+                                <rect x="250" y="40" width="60" height="60" rx="5" class="key left-middle" data-key="3"/>
+                                <rect x="320" y="40" width="60" height="60" rx="5" class="key left-index" data-key="4"/>
+                                <rect x="390" y="40" width="60" height="60" rx="5" class="key left-index" data-key="5"/>
+                                <rect x="460" y="40" width="60" height="60" rx="5" class="key right-index" data-key="6"/>
+                                <rect x="530" y="40" width="60" height="60" rx="5" class="key right-index" data-key="7"/>
+                                <rect x="600" y="40" width="60" height="60" rx="5" class="key right-middle" data-key="8"/>
+                                <rect x="670" y="40" width="60" height="60" rx="5" class="key right-ring" data-key="9"/>
+                                <rect x="740" y="40" width="60" height="60" rx="5" class="key right-pinky" data-key="0"/>
+                                
+                                <!-- Row 2 -->
+                                <rect x="70" y="110" width="60" height="60" rx="5" class="key left-pinky" data-key="Q"/>
+                                <rect x="140" y="110" width="60" height="60" rx="5" class="key left-ring" data-key="W"/>
+                                <rect x="210" y="110" width="60" height="60" rx="5" class="key left-middle" data-key="E"/>
+                                <rect x="280" y="110" width="60" height="60" rx="5" class="key left-index" data-key="R"/>
+                                <rect x="350" y="110" width="60" height="60" rx="5" class="key left-index" data-key="T"/>
+                                <rect x="420" y="110" width="60" height="60" rx="5" class="key right-index" data-key="Y"/>
+                                <rect x="490" y="110" width="60" height="60" rx="5" class="key right-index" data-key="U"/>
+                                <rect x="560" y="110" width="60" height="60" rx="5" class="key right-middle" data-key="I"/>
+                                <rect x="630" y="110" width="60" height="60" rx="5" class="key right-ring" data-key="O"/>
+                                <rect x="700" y="110" width="60" height="60" rx="5" class="key right-pinky" data-key="P"/>
+                                
+                                <!-- Row 3 (Home Row) -->
+                                <rect x="85" y="180" width="60" height="60" rx="5" class="key left-pinky" data-key="A"/>
+                                <rect x="155" y="180" width="60" height="60" rx="5" class="key left-ring" data-key="S"/>
+                                <rect x="225" y="180" width="60" height="60" rx="5" class="key left-middle" data-key="D"/>
+                                <rect x="295" y="180" width="60" height="60" rx="5" class="key left-index home-key" data-key="F"/>
+                                <rect x="365" y="180" width="60" height="60" rx="5" class="key left-index" data-key="G"/>
+                                <rect x="435" y="180" width="60" height="60" rx="5" class="key right-index" data-key="H"/>
+                                <rect x="505" y="180" width="60" height="60" rx="5" class="key right-index home-key" data-key="J"/>
+                                <rect x="575" y="180" width="60" height="60" rx="5" class="key right-middle" data-key="K"/>
+                                <rect x="645" y="180" width="60" height="60" rx="5" class="key right-ring" data-key="L"/>
+                                <rect x="715" y="180" width="60" height="60" rx="5" class="key right-pinky" data-key=";"/>
+                                
+                                <!-- Row 4 -->
+                                <rect x="100" y="250" width="60" height="60" rx="5" class="key left-pinky" data-key="Z"/>
+                                <rect x="170" y="250" width="60" height="60" rx="5" class="key left-ring" data-key="X"/>
+                                <rect x="240" y="250" width="60" height="60" rx="5" class="key left-middle" data-key="C"/>
+                                <rect x="310" y="250" width="60" height="60" rx="5" class="key left-index" data-key="V"/>
+                                <rect x="380" y="250" width="60" height="60" rx="5" class="key left-index" data-key="B"/>
+                                <rect x="450" y="250" width="60" height="60" rx="5" class="key right-index" data-key="N"/>
+                                <rect x="520" y="250" width="60" height="60" rx="5" class="key right-index" data-key="M"/>
+                                <rect x="590" y="250" width="60" height="60" rx="5" class="key right-middle" data-key=","/>
+                                <rect x="660" y="250" width="60" height="60" rx="5" class="key right-ring" data-key="."/>
+                                <rect x="730" y="250" width="60" height="60" rx="5" class="key right-pinky" data-key="/"/>
+                            </g>
+                            
+                            <!-- Key labels -->
+                            <g fill="var(--text-secondary)" font-family="Inter" font-size="14" text-anchor="middle">
+                                <!-- Add text elements for each key label -->
+                            </g>
+                        </svg>
+                    </div>
+                    <div class="finger-legend">
+                        <div class="finger-item"><span class="finger-color left-pinky"></span> Left Pinky</div>
+                        <div class="finger-item"><span class="finger-color left-ring"></span> Left Ring</div>
+                        <div class="finger-item"><span class="finger-color left-middle"></span> Left Middle</div>
+                        <div class="finger-item"><span class="finger-color left-index"></span> Left Index</div>
+                        <div class="finger-item"><span class="finger-color right-index"></span> Right Index</div>
+                        <div class="finger-item"><span class="finger-color right-middle"></span> Right Middle</div>
+                        <div class="finger-item"><span class="finger-color right-ring"></span> Right Ring</div>
+                        <div class="finger-item"><span class="finger-color right-pinky"></span> Right Pinky</div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <div class="footer-content">
+                <div>
+                    <p>Typograf - A modern typing experience. Free forever.</p>
+                    <p class="byline">By <a href="https://jackpotdev.xyz" target="_blank">Jackpot</a></p>
+                </div>
+                <div class="footer-links">
+                    <a href="https://jackpotdev.xyz/contact.html" target="_blank">Contact</a>
+                    <a href="https://jackpotdev.xyz/donate.html" target="_blank" class="highlight">Support Us</a>
+                </div>
+            </div>
+        </footer>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
